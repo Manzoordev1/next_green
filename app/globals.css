@@ -1,26 +1,48 @@
-@import "tailwindcss";
-
+/* Global colors and fonts */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff;        /* Light background */
+  --foreground: #111827;        /* Dark text */
+  --primary-green: #09bd3f;     /* ERP green accent */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1f2937;
+    --foreground: #e5e7eb;
+    --primary-green: #22c55e;
   }
 }
 
+/* Body uses Inter font loaded from next/font/local */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Monospace for tables, code blocks, logs */
+code, pre {
+  font-family: var(--font-fira-code), monospace;
+}
+
+/* Links styling */
+a {
+  color: var(--primary-green);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Universal box-sizing & smooth transitions */
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
